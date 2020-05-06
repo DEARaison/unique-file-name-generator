@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.joseph</groupId>
-    <artifactId>JavaMavenTemplate</artifactId>
+    <artifactId>UniqueFileNameGenerator</artifactId>
     <version>1.0.0</version>
 
-    <name>Java Maven Template</name>
+    <name>Unique File Name Generator</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -23,14 +23,6 @@
             <artifactId>junit</artifactId>
             <version>4.13</version>
             <scope>test</scope>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 

@@ -1,7 +1,6 @@
-# java-maven-template
+# Unique File Name Generator
 
-[![Build Status](https://travis-ci.com/JosephMaria/java-maven-template.svg?branch=master)](https://travis-ci.com/JosephMaria/java-maven-template)
-[![codecov](https://codecov.io/gh/JosephMaria/java-maven-template/branch/master/graph/badge.svg)](https://codecov.io/gh/JosephMaria/java-maven-template)
+[![Build Status](https://travis-ci.com/JosephMaria/unique-file-name-generator.svg?branch=master)](https://travis-ci.com/JosephMaria/unique-file-name-generator)
+[![codecov](https://codecov.io/gh/JosephMaria/unique-file-name-generator/branch/master/graph/badge.svg)](https://codecov.io/gh/JosephMaria/unique-file-name-generator)
 
-A Github template project for Java projects using Maven
-## Note: Remember to modify README.md and pom.xml files.
+A file name generator to generate a unique file name when saving a file in Java.
