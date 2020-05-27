@@ -1,4 +1,4 @@
-package com.joseph;
+package com.joseph.filenamegenerator;
 
 import java.io.File;
 import java.nio.file.Path;

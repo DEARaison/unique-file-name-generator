@@ -1,6 +1,9 @@
-package com.joseph;
+package com.joseph.filenamegenerator;
 
+import org.junit.After;
 import org.junit.Test;
+
+import java.io.File;
 
 /**
  * Created by IntelliJ on Thursday, 07 May, 2020 at 02:09.
@@ -8,6 +11,15 @@ import org.junit.Test;
  * @author Joseph Maria
  */
 public class FileNameGeneratorTest {
+    public static final String USER_HOME = System.getProperty("USER.HOME");
+    private final File file1 = new File(USER_HOME, "file1.txt");
+    private final File file2 = new File(USER_HOME, "file2.jpg");
+    private final File file3 = new File(USER_HOME, "file3.mp4");
+
+    @After
+    public void clear() {
+
+    }
 
     @Test
     public void getFileExtension() {
