@@ -1,4 +1,4 @@
-package com.joseph.filenamegenerator;
+package com.github.dearaison.filenamegenerator;
 
 import org.junit.After;
 import org.junit.Test;
