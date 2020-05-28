@@ -29,12 +29,6 @@
         </developer>
     </developers>
 
-    <scm>
-        <connection>scm:git:git://github.com/DEARaison/unique-file-name-generator.git</connection>
-        <developerConnection>scm:git:ssh://github.com:DEARaison/unique-file-name-generator.git</developerConnection>
-        <url>http://github.com/DEARaison/unique-file-name-generator/tree/master</url>
-    </scm>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>14</maven.compiler.source>
@@ -162,6 +156,12 @@
             </plugin>
         </plugins>
     </build>
+
+    <scm>
+        <connection>scm:git:git://github.com/DEARaison/unique-file-name-generator.git</connection>
+        <developerConnection>scm:git:ssh://github.com:DEARaison/unique-file-name-generator.git</developerConnection>
+        <url>http://github.com/DEARaison/unique-file-name-generator/tree/master</url>
+    </scm>
 
     <distributionManagement>
         <snapshotRepository>
