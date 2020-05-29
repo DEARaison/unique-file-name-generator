@@ -1,9 +1,32 @@
 language: java
+
 jdk:
   - oraclejdk14
+
 sudo: false
+
 cache:
   directories:
     - $HOME/.m2
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+
+## Get the project version
+before_deploy:
+  - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
+  - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep -v '\[')
+
+deploy:
+  provider: releases
+  api_key:
+    secure: EmICLX/6x+0/AAE3ZhYaAVXT61RR69GXq2RNJMq61BrS/8vX8ia7PUjHOw26QJvYQy6SC6CBamvBqsuAO1MFhjATK96f6kbahZmyg9fqLC3213Cw5mwYFQBB7Dztyf0ii3clWCpHdRKbnRcEKvFYCKphbl97dPUHhhvImLxlqNVD/59SXKDjAYtbtYWzQeJ9RjbbMKgcbm+w6Y3AO/0OmWk6n/a9OOUf7v07qRqcm0FUS5a0dnuQB9fMud0pIvf9s0KcjjRie5eRgffi6JY01qC5yCESAJ0hFUgSIZvDDDUzETFnLi38alIrxEy23wNcv3m2a8Ftt6G2yLL+3+9PA2RDqkDaQs81CU9+2nwc1usUbgtMDVDRTZLM58lhxc7kWE7ZkB0VwuHcYsu6RKsclIdAfHr8iBbBWn/iHBm0sAyTiWeTr/Od5r3JY+ZKpCIUXB1P71IlZHaNxKHGUy+G+7RZj3qiYHIy3sLU7aEyi12jweR3lSFQiXnbeCLyeKkS6Il9KNCHjMELnxR6rsRenkD4m9gIDseKpSiuEv6Wb1tpBlSfNr0JMYu7hlzOfI4mrNXgLVpS2KxHAFVcJVdbI5ooSMKx0p6uiuYLEoa0rLQ0C//8OAdg1Ys18HMTY0b+PEr6Sl3sd+MMUBCeSMxaa98N/LHpAYt0cV+G8RUt3jE=
+  file:
+    - unique-file-name-generator-$project_version.jar
+    - unique-file-name-generator-$project_version-javadoc.jar
+    - unique-file-name-generator-$project_version-sources.jar
+  on:
+    repo: DEARaison/unique-file-name-generator
+  skip_cleanup: 'true'
+  name: Version $project_version
+
