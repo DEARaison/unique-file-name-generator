@@ -11,6 +11,6 @@ A simple library to generate a unique file name when saving a file in Java.
 <dependency>
      <groupId>com.github.dearaison</groupId>
      <artifactId>unique-file-name-generator</artifactId>
-     <version>1.0.1</version>
+     <version>1.0.2</version>
 </dependency>
 ```
