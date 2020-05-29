@@ -1,35 +1,25 @@
 language: java
-
 jdk:
   - oraclejdk14
-
 sudo: false
-
 cache:
   directories:
-    - $HOME/.m2
-
-## export GPG details
+    - "$HOME/.m2"
 before_install:
   - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
   - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
-
-## Build and release to maven central
-script:
-  mvn --settings .travis.settings.xml clean deploy -B -U -Prelease
-
+script: mvn --settings .travis.settings.xml clean deploy -B -U -Prelease
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-
-## Get the project version
 before_deploy:
   - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
-  - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep -v '\[')
+  - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep
+    -v '\[')
 
 deploy:
   provider: releases
   api_key:
-    secure: EmICLX/6x+0/AAE3ZhYaAVXT61RR69GXq2RNJMq61BrS/8vX8ia7PUjHOw26QJvYQy6SC6CBamvBqsuAO1MFhjATK96f6kbahZmyg9fqLC3213Cw5mwYFQBB7Dztyf0ii3clWCpHdRKbnRcEKvFYCKphbl97dPUHhhvImLxlqNVD/59SXKDjAYtbtYWzQeJ9RjbbMKgcbm+w6Y3AO/0OmWk6n/a9OOUf7v07qRqcm0FUS5a0dnuQB9fMud0pIvf9s0KcjjRie5eRgffi6JY01qC5yCESAJ0hFUgSIZvDDDUzETFnLi38alIrxEy23wNcv3m2a8Ftt6G2yLL+3+9PA2RDqkDaQs81CU9+2nwc1usUbgtMDVDRTZLM58lhxc7kWE7ZkB0VwuHcYsu6RKsclIdAfHr8iBbBWn/iHBm0sAyTiWeTr/Od5r3JY+ZKpCIUXB1P71IlZHaNxKHGUy+G+7RZj3qiYHIy3sLU7aEyi12jweR3lSFQiXnbeCLyeKkS6Il9KNCHjMELnxR6rsRenkD4m9gIDseKpSiuEv6Wb1tpBlSfNr0JMYu7hlzOfI4mrNXgLVpS2KxHAFVcJVdbI5ooSMKx0p6uiuYLEoa0rLQ0C//8OAdg1Ys18HMTY0b+PEr6Sl3sd+MMUBCeSMxaa98N/LHpAYt0cV+G8RUt3jE=
+    secure: W+ghjW3DbFj6iDcOR/yrbZQ+MSNSypWm9/In5Krh6i5RduFeb6q7SwGFmmRwmb5jbINk9IgyvYPJWJvVuixYmy0rAdp8n1HRBvNNcXpUvVLjNxgsbviyvYpRvQs/EtCyRbKmsjvdcKTNy16kswRIEUoCWPJ3lDYMfjrlrpiGVrtyvOJd0CXaZnLlxQ2TW0IRR/6w6HFvufDldI6jsQ4Cqh9wuTXD4FxJu17flDUl3DEBuMfoAiKqHy0viiKHWveb/GZDtF4FmGN3d1sFOkPyzmf3u3kJOZhOVDhE59/9EmhTwLexvSjv57NGSylH8xhB6Gj7RPHcHQ0dCB63UDMsItBxRsz9KaA2z5GSaNrvAmx3wk0v/uw0RHNg5LGV+n/o1tLk1LnNGzcvQT+B+JAIZWlozMPe9AXV/MeHkMn6LLfwD92J+mp8k+ztnhaAetgoZOgfmwefm3AP0nHBL3siLyDUeQDtbVemtkoOLRRtgY8E7lqAqjXXwWboOMOQzEu+5S1UwO8QfZE/rPjOKN+vuLvgWjv2zSXYYXwWVjZCLnwLozExPhXxJvV8M3JpYveE3gfAEIndW8WPEMs+KdCCGNbRFi3DbPkoEdEoYGlRkxDuu6CSntf/LfNidJoyaI+NbSEDOr9AKh/6pQMbzWmIENvJIVB9J3UpSEHh2RW/E9E=
   file:
     - unique-file-name-generator-$project_version.jar
     - unique-file-name-generator-$project_version-javadoc.jar
@@ -38,4 +28,3 @@ deploy:
     repo: DEARaison/unique-file-name-generator
   skip_cleanup: 'true'
   name: Version $project_version
-
