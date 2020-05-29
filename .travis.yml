@@ -35,9 +35,9 @@ deploy:
   api_key:
     secure: fa2pxC+7HoMQqnMHfiNq/PMzuJ51CwUD4SEA7/kIS23S3xj+Lmo0SpQHy81O05i32+r7OU+8e4udn3zZd0yKIpPT2+GLQgtpwahgpYTwdxGzEdplVYRMSJsTkj1OLYf9gcRPOxdS/s3zQski6j5bqR9Oj49xogRIqnDvancseaHe4gG+18s0cmEPSEKKsKeSymXEGUg4VhGkkA9EuT0HvsC8ezIn+jyAIPSjHhLXasP9pw7TT488GLC3oQntOUWBqlt8bWyJlNWYUglqOvFWPQ8gDvZS5W0KG5mZQpjcPMpfCa1moq4B9MFvbJBK5IKUjS8GXZzwCGNT2QU21kqaNdhWDwwqFxWblMiR8lFU1RfGWNswoVZC/In5Gpf+NyysrjIJdXRr0xQjqhbIZIwqXTNG2YdQ3woDcWiaPdQ/l+VL4HVnBL9FZBYtSaCxnIFKRkZce28I51c/AJPLvZ1A50G03tiUIR9gtFnnTv/vMSSARIJSxyJNfxpv0hL4IgvpgOi8esD9zOuv+nEC97pvmt6cEXwbCi1wV/EQu9hkGIlwdHMdZH4gKWq8hjjx70Wym+2VgvSfvrcKunrCZNuS1JDSmH5/W9kZb+0EsLfj5N2nwEgetC7FtqBvFGM1mgNv7ytzQRKTJdHN1QsHcitfvxX0mufpF01AzdETMEKswoc=
   file:
-    - unique-file-name-generator-$project_version.jar
-    - unique-file-name-generator-$project_version-javadoc.jar
-    - unique-file-name-generator-$project_version-sources.jar
+    - target/unique-file-name-generator-$project_version.jar
+    - target/unique-file-name-generator-$project_version-javadoc.jar
+    - target/unique-file-name-generator-$project_version-sources.jar
   on:
     repo: DEARaison/unique-file-name-generator
   skip_cleanup: 'true'
