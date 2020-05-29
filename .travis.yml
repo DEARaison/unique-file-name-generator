@@ -18,7 +18,7 @@ install:
 
 ## Build and release to maven central
 script:
-  mvn clean deploy --settings .travis.settings.xml -B -U -Prelease
+  mvn --settings .travis.settings.xml clean deploy -B -U -Prelease
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
