@@ -18,7 +18,7 @@ install:
 
 ## Build and release to maven central
 script:
-  mvn clean deploy --settings .travis.settings.xml -B -U
+  mvn clean deploy --settings .travis.settings.xml
 ## -Prelease
 
 after_success:
