@@ -1,40 +1,23 @@
 language: java
-
 jdk:
   - oraclejdk14
-
 sudo: false
-
 cache:
   directories:
     - $HOME/.m2
-
-## export GPG details
-## Running command to get secret key in base64 format:
-## gpg -a --export-secret-keys <your-email-address> | base64 -w 0
-## Running command to get ownertrust in base64 format:
-## gpg --export-ownertrust | base64 -w 0
 before_install:
   - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
   - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
-
-## Build and release to maven central
 script:
   mvn --settings .travis.settings.xml clean deploy -B -U -Prelease
-
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-
-## Get the project version
 before_deploy:
   - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
   - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep -v '\[')
-  ## Set up git user name and tag this commit
   - git config --local user.name "DEARaison"
   - git config --local user.email "mrbaotruongit@gmail.com"
-  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-  - git tag $TRAVIS_TAG
-
+  - git tag v$project_version
 deploy:
   provider: releases
   api_key:
