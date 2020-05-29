@@ -14,8 +14,6 @@ before_install:
   - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
   - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
 
-install:
-
 ## Build and release to maven central
 script:
   mvn --settings .travis.settings.xml clean deploy -B -U -Prelease
