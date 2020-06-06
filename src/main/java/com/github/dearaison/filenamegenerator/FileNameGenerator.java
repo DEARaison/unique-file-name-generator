@@ -16,7 +16,7 @@ public class FileNameGenerator {
      * @return A file extension (with dot sign) if there is one. Empty if there is no extension in file name string. Extension string after last dot if file name contain only extension and no file name
      */
     public static String getFileExtension(String fileName) {
-        int indexOfLastDot = fileName.indexOf('.');
+        int indexOfLastDot = fileName.lastIndexOf('.');
         if (indexOfLastDot == -1) {
             return "";
         }
@@ -50,7 +50,11 @@ public class FileNameGenerator {
      * @return A file name (without file extension) if any
      */
     public static String getFileName(String fileName) {
-        return fileName.substring(0, fileName.lastIndexOf('.'));
+        int indexOfLastDot = fileName.lastIndexOf('.');
+        if (indexOfLastDot == -1) {
+            return fileName;
+        }
+        return fileName.substring(0, indexOfLastDot);
     }
 
     /**
