@@ -6,7 +6,7 @@
 
     <groupId>com.github.dearaison</groupId>
     <artifactId>unique-file-name-generator</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.4</version>
     <packaging>jar</packaging>
 
     <name>Unique File Name Generator</name>
