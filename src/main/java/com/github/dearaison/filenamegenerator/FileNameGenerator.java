@@ -92,7 +92,7 @@ public class FileNameGenerator {
         String fileExtension = getFileExtension(file);
         long id = 0;
         File checkFile = file;
-        while (file.exists()) {
+        while (checkFile.exists()) {
             checkFile = new File(parentDir, fileName + " (" + ++id + ")" + fileExtension);
         }
         return checkFile;
