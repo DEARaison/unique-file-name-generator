@@ -27,7 +27,9 @@
 			"extensions": [
 				"streetsidesoftware.code-spell-checker",
 				"vscjava.vscode-java-pack",
-				"redhat.vscode-xml"
+				"redhat.vscode-xml",
+				"github.vscode-github-actions",
+				"analytic-signal.preview-html"
 			]
 		}
 	}
